@@ -1,4 +1,4 @@
-package thalesdigital.io.wallet;
+package thalesdigital.io.wallet.api;
 
 import java.util.Currency;
 

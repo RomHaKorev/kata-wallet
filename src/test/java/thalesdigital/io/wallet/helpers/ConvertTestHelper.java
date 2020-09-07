@@ -2,8 +2,8 @@ package thalesdigital.io.wallet.helpers;
 
 import org.junit.jupiter.api.Assertions;
 import thalesdigital.io.wallet.domain.Money;
-import thalesdigital.io.wallet.CurrencyConverter;
-import thalesdigital.io.wallet.NoChangeRateException;
+import thalesdigital.io.wallet.domain.exchangerate.CurrencyConverter;
+import thalesdigital.io.wallet.api.NoChangeRateException;
 
 import java.math.BigDecimal;
 import java.util.Currency;

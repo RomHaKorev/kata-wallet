@@ -1,7 +1,7 @@
 package thalesdigital.io.wallet.helpers;
 
-import thalesdigital.io.wallet.domain.ChangeRate;
-import thalesdigital.io.wallet.ChangeRateAccesser;
+import thalesdigital.io.wallet.domain.exchangerate.ChangeRate;
+import thalesdigital.io.wallet.api.ChangeRateAccesser;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -18,7 +18,7 @@ public class ChangeRateCatalogStub implements ChangeRateAccesser {
     rates.add(new ChangeRate(rate, from, to));
   }
 
-  void applyRates(String rates) {
+  public void applyRates(String rates) {
     Arrays.stream(rates.split("\n")).forEach(
         line -> parseRate(line)
     );

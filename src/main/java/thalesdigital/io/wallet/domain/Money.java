@@ -1,5 +1,7 @@
 package thalesdigital.io.wallet.domain;
 
+import thalesdigital.io.wallet.domain.exchangerate.ChangeRate;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 

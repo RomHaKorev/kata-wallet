@@ -1,16 +1,8 @@
 package thalesdigital.io.wallet;
 
-import org.junit.jupiter.api.Assertions;
-import thalesdigital.io.wallet.domain.Money;
-import thalesdigital.io.wallet.domain.Wallet;
-import thalesdigital.io.wallet.domain.stocks.CheckingAccount;
-import thalesdigital.io.wallet.helpers.WalletTestHelper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-import java.util.Currency;
-import java.util.Locale;
+import thalesdigital.io.wallet.helpers.WalletTestHelper;
 
 public class WalletTest {
 
@@ -19,7 +11,7 @@ public class WalletTest {
   void test1() {
     given_an_empty_wallet()
         .when_I_consult_the_amount_in("EUR")
-        .then_I_should_have(0D);
+        .then_I_should_see_nothing();
   }
 
   @Test
@@ -29,7 +21,7 @@ public class WalletTest {
         "A checking account with EUR 12\n" +
         "A checking account with EUR 38")
     .when_I_consult_the_amount_in("EUR")
-    .then_I_should_have(50D);
+    .then_I_should_have(12D, 38D);
   }
 
   @Test
@@ -40,7 +32,7 @@ public class WalletTest {
             "A checking account with EUR 38")
         .and_exchange_rates("EUR to USD -> 2")
         .when_I_consult_the_amount_in("USD")
-        .then_I_should_have(100D);
+        .then_I_should_have(24D, 76D);
   }
 
   @Test
@@ -52,7 +44,7 @@ public class WalletTest {
         .and_exchange_rates("EUR to USD -> 2\n" +
                             "GBP to USD -> 3")
         .when_I_consult_the_amount_in("USD")
-        .then_I_should_have(50D);
+        .then_I_should_have(30D, 20D);
   }
 
   @Test
@@ -73,7 +65,7 @@ public class WalletTest {
         .and_exchange_rates("GBP to EUR -> 2\n" +
                             "USD to EUR -> 4")
         .when_I_consult_the_amount_in("EUR")
-        .then_I_should_have(10D * 2 + 150D * 4);
+        .then_I_should_have(10D * 2, 150D * 4);
   }
 
   WalletTestHelper given_an_empty_wallet() {

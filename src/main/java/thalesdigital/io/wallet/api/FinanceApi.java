@@ -1,4 +1,4 @@
-package thalesdigital.io.wallet;
+package thalesdigital.io.wallet.api;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -8,6 +8,13 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+
+
+/*
+
+THIS IS A 'READ-ONLY' FILE: THIS API SHOULD BE CONSIDERED AS STATIC.
+
+ */
 
 public class FinanceApi {
 

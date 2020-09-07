@@ -2,11 +2,10 @@ package thalesdigital.io.wallet.domain;
 
 import thalesdigital.io.wallet.domain.stocks.Stock;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
-import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Wallet {
   public Wallet() {
@@ -23,11 +22,9 @@ public class Wallet {
     return new Wallet(s);
   }
 
-  public Money evaluateIn(BiFunction<Money, Currency, Money> converter, Currency to) {
+  public Stream<Money> evaluate(Function<Money, Money> converter) {
     return stocks.stream()
-        .map(s ->converter.apply(s.amount(), to))
-        .reduce(Money::plus)
-        .orElse(new Money(new BigDecimal(0D), to));
+        .map(s ->converter.apply(s.amount()));
   }
 
   private final List<Stock> stocks;

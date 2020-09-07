@@ -3,7 +3,10 @@ package thalesdigital.io.wallet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import thalesdigital.io.wallet.domain.ChangeRate;
+import thalesdigital.io.wallet.api.ChangeRateAccesser;
+import thalesdigital.io.wallet.api.ChangeRateCatalog;
+import thalesdigital.io.wallet.api.NoChangeRateException;
+import thalesdigital.io.wallet.domain.exchangerate.ChangeRate;
 
 import java.math.BigDecimal;
 import java.util.Currency;

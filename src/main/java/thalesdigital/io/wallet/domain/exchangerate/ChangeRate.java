@@ -1,4 +1,4 @@
-package thalesdigital.io.wallet.domain;
+package thalesdigital.io.wallet.domain.exchangerate;
 
 import java.math.BigDecimal;
 import java.util.Currency;
