@@ -69,7 +69,7 @@ public class WalletTest {
   void test6() {
     given_a_wallet_with(
         "A checking account with GBP 10\n" +
-        "Stock options in Petroleum with 10 barrels at EUR 15 each")
+        "Stock options in Petroleum with 10 barrels at USD 15 each")
         .and_exchange_rates("GBP to EUR -> 2\n" +
                             "USD to EUR -> 4")
         .when_I_consult_the_amount_in("EUR")
