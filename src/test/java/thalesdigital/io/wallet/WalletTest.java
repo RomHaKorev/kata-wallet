@@ -76,45 +76,6 @@ public class WalletTest {
         .then_I_should_have(10D * 2 + 150D * 4);
   }
 
-  @Test
-  @DisplayName("Integration test: nominal")
-  void test7() {
-    ChangeRateCatalog catalog = new ChangeRateCatalog((from, to) -> "2");
-    CurrencyConverter converter = new CurrencyConverter(catalog);
-    Wallet w = new Wallet();
-
-    w = w.with(new CheckingAccount(new Money(new BigDecimal(120.0), Currency.getInstance(Locale.FRANCE))));
-
-    Assertions.assertEquals(new BigDecimal(240), w.evaluateIn((amount, to) -> {
-      try {
-        return converter.convertTo(amount, to);
-      } catch (NoChangeRateException e) {
-        return null;
-      }
-    }, Currency.getInstance(Locale.US)).amount);
-  }
-
-
-  @Test
-  @DisplayName("Integration test: error")
-  void test8() {
-    ChangeRateCatalog catalog = new ChangeRateCatalog((from, to) -> {
-      throw new RuntimeException();
-    });
-    CurrencyConverter converter = new CurrencyConverter(catalog);
-    final Wallet w = new Wallet().with(new CheckingAccount(new Money(new BigDecimal(120.0), Currency.getInstance(Locale.FRANCE))));
-
-    w.with(new CheckingAccount(new Money(new BigDecimal(120.0), Currency.getInstance(Locale.FRANCE))));
-
-    Assertions.assertThrows(RuntimeException.class, () -> w.evaluateIn((amount, to) -> {
-      try {
-        return converter.convertTo(amount, to);
-      } catch (NoChangeRateException e) {
-        return null;
-      }
-    }, Currency.getInstance(Locale.US)));
-  }
-
   WalletTestHelper given_an_empty_wallet() {
     return new WalletTestHelper("");
   }
