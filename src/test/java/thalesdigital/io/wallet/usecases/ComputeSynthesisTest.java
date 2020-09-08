@@ -22,11 +22,11 @@ public class ComputeSynthesisTest {
         .then_I_should_see("USD 50");
   }
 
-  ComputeSynthesisTestHelper given_a_wallet() {
+  private ComputeSynthesisTestHelper given_a_wallet() {
     return new ComputeSynthesisTestHelper();
   }
 
-  ComputeSynthesisTestHelper given_a_wallet_with(String stocks) {
+  private ComputeSynthesisTestHelper given_a_wallet_with(String stocks) {
     return new ComputeSynthesisTestHelper(stocks);
   }
 

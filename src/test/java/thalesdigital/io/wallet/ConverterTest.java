@@ -14,7 +14,7 @@ public class ConverterTest {
         .then_amount_should_be("USD 5.0");
   }
 
-  ConvertTestHelper given_the_exchange_rates(String rates) {
+  private ConvertTestHelper given_the_exchange_rates(String rates) {
     return new ConvertTestHelper(rates);
   }
 }

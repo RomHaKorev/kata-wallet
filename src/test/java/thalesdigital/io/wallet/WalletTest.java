@@ -68,10 +68,10 @@ public class WalletTest {
         .then_I_should_have(10D * 2, 150D * 4);
   }
 
-  WalletTestHelper given_an_empty_wallet() {
+  private WalletTestHelper given_an_empty_wallet() {
     return new WalletTestHelper("");
   }
-  WalletTestHelper given_a_wallet_with(String stocks) {
+  private WalletTestHelper given_a_wallet_with(String stocks) {
     return new WalletTestHelper(stocks);
   }
 
